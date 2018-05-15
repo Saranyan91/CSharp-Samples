@@ -88,6 +88,17 @@ namespace learningcsharp
             return sum;
         }
 
+        public int ReverseNumber(int num)
+        {
+            int reverse = 0;
+            while (num != 0)
+            {
+                reverse = reverse * 10;
+                reverse = reverse + num % 10;
+                num = num / 10;
+            }
+            return reverse;
+        }
         static void Main(string[] args)
         {
             ConsoleKeyInfo cki;
@@ -98,7 +109,7 @@ namespace learningcsharp
                 
                 Console.WriteLine("Enter a Number : ");
                 num = int.Parse(Console.ReadLine());
-                Console.WriteLine("Sum of the digits in Number {0}, Press 'C' to Continue or 'X' to exit", dial.SumofDigits(num));
+                Console.WriteLine("Reverse of the Number {0} is {1}, Press 'C' to Continue or 'X' to exit", num, dial.ReverseNumber(num));
                 cki = Console.ReadKey(true);
                 if (cki.Key == ConsoleKey.X) break;
             }            
