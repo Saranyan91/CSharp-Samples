@@ -1,0 +1,7 @@
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\bin\Debug\learningcsharp.exe.config
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\bin\Debug\learningcsharp.exe
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\bin\Debug\learningcsharp.pdb
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\obj\Debug\learningcsharp.csprojResolveAssemblyReference.cache
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\obj\Debug\learningcsharp.csproj.CoreCompileInputs.cache
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\obj\Debug\learningcsharp.exe
+C:\Users\ssenthivel\source\repos\learningcsharp\learningcsharp\obj\Debug\learningcsharp.pdb
