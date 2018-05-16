@@ -99,6 +99,28 @@ namespace learningcsharp
             }
             return reverse;
         }
+
+        public void BinaryTriangle(int input)
+        {
+            int p, lastInt = 0;
+            for (int i = 1; i <= input; i++)
+            {
+                for (p = 1; p <= i; p++)
+                {
+                    if(lastInt == 1)
+                    {
+                        Console.Write("0");
+                        lastInt = 0;
+                    }
+                    if(lastInt == 0)
+                    {
+                        Console.Write("1");
+                        lastInt = 1;
+                    }
+                }Console.Write("\n");
+
+            }
+        }
         static void Main(string[] args)
         {
             ConsoleKeyInfo cki;
@@ -106,10 +128,14 @@ namespace learningcsharp
             BasicCSharp dial = new BasicCSharp();
             while (true)
             {
-                
-                Console.WriteLine("Enter a Number : ");
+
+                //Console.WriteLine("Enter a Number : ");
+                //num = int.Parse(Console.ReadLine());
+                //Console.WriteLine("Reverse of the Number {0} is {1}, Press 'C' to Continue or 'X' to exit", num, dial.ReverseNumber(num));
+                Console.WriteLine("Enter the Number of Rows: ");
                 num = int.Parse(Console.ReadLine());
-                Console.WriteLine("Reverse of the Number {0} is {1}, Press 'C' to Continue or 'X' to exit", num, dial.ReverseNumber(num));
+                Console.WriteLine("Binary Triangle of {0} Rows", num);
+                dial.BinaryTriangle(num);
                 cki = Console.ReadKey(true);
                 if (cki.Key == ConsoleKey.X) break;
             }            
