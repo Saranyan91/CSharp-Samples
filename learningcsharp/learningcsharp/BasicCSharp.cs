@@ -110,7 +110,7 @@ namespace learningcsharp
                     if(lastInt == 1)
                     {
                         Console.Write("0");
-                        lastInt = 0;
+                        lastInt = 0;ConsoleApp1
                     }
                     if(lastInt == 0)
                     {
