@@ -121,6 +121,25 @@ namespace learningcsharp
 
             }
         }
+
+        public int NumberOf1s(int input)
+        {
+            int count = 0, i, rnum;
+            while (true)
+            {
+                i = input % 10;
+                input = input / 10;
+                if (i == 1)
+                {
+                    count += 1;
+                }
+                if(input == 0)
+                {
+                    break;
+                }
+            }
+            return count;
+        }
         static void Main(string[] args)
         {
             ConsoleKeyInfo cki;
@@ -132,10 +151,17 @@ namespace learningcsharp
                 //Console.WriteLine("Enter a Number : ");
                 //num = int.Parse(Console.ReadLine());
                 //Console.WriteLine("Reverse of the Number {0} is {1}, Press 'C' to Continue or 'X' to exit", num, dial.ReverseNumber(num));
-                Console.WriteLine("Enter the Number of Rows: ");
+
+                //Console.WriteLine("Enter the Number of Rows: ");
+                //num = int.Parse(Console.ReadLine());
+                //Console.WriteLine("Binary Triangle of {0} Rows", num);
+                //dial.BinaryTriangle(num);
+
+                Console.WriteLine("Enter a Number:");
                 num = int.Parse(Console.ReadLine());
-                Console.WriteLine("Binary Triangle of {0} Rows", num);
-                dial.BinaryTriangle(num);
+                Console.WriteLine("Number of 1's in {0} is {1},  Press 'C' to Continue or 'X' to exit ", num, dial.NumberOf1s(num));
+
+
                 cki = Console.ReadKey(true);
                 if (cki.Key == ConsoleKey.X) break;
             }            
