@@ -1,0 +1,13 @@
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\obj\Debug\DigitalRestAPI.csprojResolveAssemblyReference.cache
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\obj\Debug\DigitalRestAPI.csproj.CoreCompileInputs.cache
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\DigitalRestAPI.exe.config
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\DigitalRestAPI.exe
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\DigitalRestAPI.pdb
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\Microsoft.Owin.dll
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\Owin.dll
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\System.Web.dll
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\Microsoft.Owin.xml
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\obj\Debug\DigitalRestAPI.exe
+C:\Users\ssenthivel\source\repos\DigitalRestAPI\DigitalRestAPI\obj\Debug\DigitalRestAPI.pdb

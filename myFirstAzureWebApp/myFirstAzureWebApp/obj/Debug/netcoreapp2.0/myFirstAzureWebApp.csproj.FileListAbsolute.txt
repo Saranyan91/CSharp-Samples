@@ -1,0 +1,11 @@
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\bin\Debug\netcoreapp2.0\myFirstAzureWebApp.deps.json
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\bin\Debug\netcoreapp2.0\myFirstAzureWebApp.runtimeconfig.json
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\bin\Debug\netcoreapp2.0\myFirstAzureWebApp.runtimeconfig.dev.json
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\bin\Debug\netcoreapp2.0\myFirstAzureWebApp.dll
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\bin\Debug\netcoreapp2.0\myFirstAzureWebApp.pdb
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\obj\Debug\netcoreapp2.0\myFirstAzureWebApp.csprojAssemblyReference.cache
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\obj\Debug\netcoreapp2.0\myFirstAzureWebApp.csproj.CoreCompileInputs.cache
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\obj\Debug\netcoreapp2.0\myFirstAzureWebApp.AssemblyInfoInputs.cache
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\obj\Debug\netcoreapp2.0\myFirstAzureWebApp.AssemblyInfo.cs
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\obj\Debug\netcoreapp2.0\myFirstAzureWebApp.dll
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\obj\Debug\netcoreapp2.0\myFirstAzureWebApp.pdb

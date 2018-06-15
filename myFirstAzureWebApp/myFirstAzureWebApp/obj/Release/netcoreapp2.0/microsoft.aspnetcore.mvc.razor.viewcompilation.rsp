@@ -1,0 +1,12 @@
+C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=myFirstAzureWebApp
+--content-root=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\About.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\Contact.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\Error.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\Index.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\_Layout.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\_ValidationScriptsPartial.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\_ViewImports.cshtml
+--file=C:\Users\ssenthivel\source\repos\myFirstAzureWebApp\myFirstAzureWebApp\Pages\_ViewStart.cshtml
