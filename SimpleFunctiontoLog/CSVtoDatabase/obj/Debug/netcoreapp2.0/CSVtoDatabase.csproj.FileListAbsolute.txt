@@ -1,0 +1,11 @@
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\bin\Debug\netcoreapp2.0\CSVtoDatabase.deps.json
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\bin\Debug\netcoreapp2.0\CSVtoDatabase.runtimeconfig.json
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\bin\Debug\netcoreapp2.0\CSVtoDatabase.runtimeconfig.dev.json
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\bin\Debug\netcoreapp2.0\CSVtoDatabase.dll
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\bin\Debug\netcoreapp2.0\CSVtoDatabase.pdb
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\obj\Debug\netcoreapp2.0\CSVtoDatabase.csprojAssemblyReference.cache
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\obj\Debug\netcoreapp2.0\CSVtoDatabase.csproj.CoreCompileInputs.cache
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\obj\Debug\netcoreapp2.0\CSVtoDatabase.AssemblyInfoInputs.cache
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\obj\Debug\netcoreapp2.0\CSVtoDatabase.AssemblyInfo.cs
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\obj\Debug\netcoreapp2.0\CSVtoDatabase.dll
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\CSVtoDatabase\obj\Debug\netcoreapp2.0\CSVtoDatabase.pdb

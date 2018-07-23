@@ -1,0 +1,7 @@
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\bin\Debug\CSVtoDatabase2.exe.config
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\bin\Debug\CSVtoDatabase2.exe
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\bin\Debug\CSVtoDatabase2.pdb
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\obj\Debug\CSVtoDatabase2.csprojAssemblyReference.cache
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\obj\Debug\CSVtoDatabase2.csproj.CoreCompileInputs.cache
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\obj\Debug\CSVtoDatabase2.exe
+c:\users\ssenthivel\source\repos\CSVtoDatabase\CSVtoDatabase2\obj\Debug\CSVtoDatabase2.pdb

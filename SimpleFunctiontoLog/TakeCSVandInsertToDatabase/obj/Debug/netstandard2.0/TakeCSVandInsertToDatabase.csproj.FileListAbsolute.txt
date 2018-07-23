@@ -1,0 +1,9 @@
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\bin\Debug\netstandard2.0\TakeCSVandInsertToDatabase.deps.json
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\bin\Debug\netstandard2.0\TakeCSVandInsertToDatabase.dll
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\bin\Debug\netstandard2.0\TakeCSVandInsertToDatabase.pdb
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\obj\Debug\netstandard2.0\TakeCSVandInsertToDatabase.csprojAssemblyReference.cache
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\obj\Debug\netstandard2.0\TakeCSVandInsertToDatabase.csproj.CoreCompileInputs.cache
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\obj\Debug\netstandard2.0\TakeCSVandInsertToDatabase.AssemblyInfoInputs.cache
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\obj\Debug\netstandard2.0\TakeCSVandInsertToDatabase.AssemblyInfo.cs
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\obj\Debug\netstandard2.0\TakeCSVandInsertToDatabase.dll
+C:\Users\ssenthivel\source\repos\SimpleFunctiontoLog\TakeCSVandInsertToDatabase\obj\Debug\netstandard2.0\TakeCSVandInsertToDatabase.pdb
