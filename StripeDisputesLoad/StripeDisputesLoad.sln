@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeDisputesLoad", "StripeDisputesLoad\StripeDisputesLoad.csproj", "{51234338-EFEE-49B6-898D-CA657B9A1A7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StripeDisputesLoad", "StripeDisputesLoad\StripeDisputesLoad.csproj", "{51234338-EFEE-49B6-898D-CA657B9A1A7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeTransactionsLoad", "StripeTransactionsLoad\StripeTransactionsLoad.csproj", "{17AB8BD1-FC2F-41D8-B918-043A83B10A6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeRefundsLoad", "StripeRefundsLoad\StripeRefundsLoad.csproj", "{1451A9CC-6922-4EE4-B187-3D8AA53AF126}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{51234338-EFEE-49B6-898D-CA657B9A1A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51234338-EFEE-49B6-898D-CA657B9A1A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51234338-EFEE-49B6-898D-CA657B9A1A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17AB8BD1-FC2F-41D8-B918-043A83B10A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17AB8BD1-FC2F-41D8-B918-043A83B10A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17AB8BD1-FC2F-41D8-B918-043A83B10A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17AB8BD1-FC2F-41D8-B918-043A83B10A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1451A9CC-6922-4EE4-B187-3D8AA53AF126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1451A9CC-6922-4EE4-B187-3D8AA53AF126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1451A9CC-6922-4EE4-B187-3D8AA53AF126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1451A9CC-6922-4EE4-B187-3D8AA53AF126}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

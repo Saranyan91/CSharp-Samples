@@ -10,6 +10,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

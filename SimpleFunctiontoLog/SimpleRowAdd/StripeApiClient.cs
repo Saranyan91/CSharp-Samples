@@ -86,7 +86,7 @@ UPDATE [dbo].[StripeTransactions]
 	,[TransferGroup]		   = @TransferGroup
 	,[Metadata]			   = @Metadata
     ,[RefundChargeId]       = @RefundChargeId
-    ,[record_updated_date] = @RecordUpdatedDate
+    ,[AuditCreatedDate] = @RecordUpdatedDate
 WHERE [APITransactionID]  = @APITransactionID
 END";
 
@@ -149,6 +149,8 @@ END";
             StripeList<StripeCharge> response = null;
 
             var greaterThanCreatedFilter = GetLatestCreatedTime();
+            log.Info($"Latest Created Time: {greaterThanCreatedFilter}");
+
             var listOptions = new StripeChargeListOptions()
             {
                 Limit = 100,
@@ -232,7 +234,7 @@ END";
         static DateTime GetLatestCreatedTime()
         {
             DateTime latestCreatedTime;
-            var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionStringLocal"].ConnectionString;
+            var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionString"].ConnectionString;
 
             using (var connection = new SqlConnection(cnnString))
             {
@@ -251,7 +253,7 @@ END";
         {
             try
             {
-                var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionStringLocal"].ConnectionString;
+                var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionString"].ConnectionString;
 
                 using (var connection = new SqlConnection(cnnString))
                 {

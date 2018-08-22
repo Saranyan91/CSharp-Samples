@@ -15,10 +15,10 @@ namespace StripeDisputesLoad
     public static class DisputesStripe
     {
         
-        static string cmdGetLatestCreatedTime = "SELECT ISNULL(MAX(CreatedTime),DATEADD(year,-1,GETDATE())) FROM [dbo].[StripeDisputes] where TransactionType = 'dispute'";
-        static string upsertCommand = @"IF NOT EXISTS (SELECT 1 FROM [dbo].[StripeDisputes] WHERE [DisputeID] = @DisputeID)
+        static string cmdGetLatestCreatedTime = "SELECT ISNULL(MAX(CreatedTime),DATEADD(year,-1,GETDATE())) FROM [Stripe].[Disputes] where TransactionType = 'dispute'";
+        static string upsertCommand = @"IF NOT EXISTS (SELECT 1 FROM [Stripe].[Disputes] WHERE [DisputeID] = @DisputeID)
 BEGIN
-  INSERT INTO [dbo].[StripeDisputes]
+  INSERT INTO [Stripe].[Disputes]
 	 ([DisputeID]
 	 ,[TransactionType]
 	 ,[Reason]
@@ -51,7 +51,7 @@ BEGIN
 END
 ELSE
 BEGIN
-UPDATE [dbo].[StripeDisputes]
+UPDATE [Stripe].[Disputes]
 	SET 
 	 [TransactionType]      = @TransactionType 
 	,[Reason]		        = @Reason 
