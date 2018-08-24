@@ -15,6 +15,7 @@ namespace StripeRefundsLoad
     public static class RefundsStripe
     {
         static string cmdGetLatestCreatedTime = "SELECT ISNULL(MAX(CreatedTime),DATEADD(year,-1,GETDATE())) FROM [Stripe].[Refunds]";
+        static string cmdlastObjectID = "DECLARE @minDate Datetime2;SET @minDate = (SELECT ISNULL(MIN(CreatedTime), DATEADD(year,-1, GETDATE())) FROM[Stripe].[Refunds]);SELECT refundID from[Stripe].[Refunds] where CreatedTime = @minDate;";
         static string upsertCommand = @"IF NOT EXISTS (SELECT 1 FROM [Stripe].[Refunds] WHERE [RefundID] = @RefundID)
 BEGIN
   INSERT INTO [Stripe].[Refunds]
@@ -95,6 +96,7 @@ END";
             StripeConfiguration.SetApiKey(ConfigurationManager.AppSettings["StripeApiKey"]);
 
             GetChargeRefunds48hrs(refundService, log);
+            //GetChargeRefunds(refundService, log);
 
         }
 
@@ -132,15 +134,17 @@ END";
 
         static void GetChargeRefunds(StripeRefundService refundService, TraceWriter log)
         {
-            string lastObjectId = null;
+            string lastObjectId = GetLastObjectID();
             StripeList<StripeRefund> refundItems = null;
 
-            DateTime greaterEqualCreated = DateTime.UtcNow.AddHours(-48);
+            //DateTime greaterEqualCreated = DateTime.UtcNow.AddHours(-48);
+            //var lesserThanCreatedFilter = GetMinCreatedTime();
+            log.Info($"LastObjectId: {lastObjectId}");
 
             var listOptions = new StripeRefundListOptions()
             {
                 Limit = 100,
-                StartingAfter = lastObjectId
+                StartingAfter = lastObjectId,
             };
 
             DateTime? lastRefundCreated = null;
@@ -174,7 +178,7 @@ END";
                 BalanceTransactionId = r.BalanceTransactionId,
                 BalanceTransaction = JsonConvert.SerializeObject(r.BalanceTransaction),
                 FailureBalanceTransactionId = r.FailureBalanceTransactionId,
-                FailureBalanceTransaction = JsonConvert.SerializeObject(r.FailureBalanceTransaction),
+                FailureBalanceTransaction = processNull(JsonConvert.SerializeObject(r.FailureBalanceTransaction)),
                 FailureReason = r.FailureReason,
                 ChargeID = r.ChargeId,
                 Charge = JsonConvert.SerializeObject(r.Charge),
@@ -203,6 +207,23 @@ END";
                 }
             }
             return latestCreatedTime;
+        }
+
+        static string GetLastObjectID()
+        {
+            string lastObjectID;
+            var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionString"].ConnectionString;
+
+            using (var connection = new SqlConnection(cnnString))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(cmdlastObjectID, connection))
+                {
+                    lastObjectID = (String)cmd.ExecuteScalar();
+                }
+            }
+            return lastObjectID;
         }
 
         public static void UpsertStripeRefunds(StripeRefundTransaction trans, TraceWriter log)
@@ -243,6 +264,19 @@ END";
             catch (Exception ex)
             {
                 log.Error("InsertStripeTransaction error", ex);
+            }
+        }
+
+
+        static string processNull(string data)
+        {
+            if (data == "null")
+            {
+                return null;
+            }
+            else
+            {
+                return Convert.ToString(data);
             }
         }
     }

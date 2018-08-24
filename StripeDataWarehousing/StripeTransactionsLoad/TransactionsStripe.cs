@@ -15,6 +15,8 @@ namespace StripeTransactionsLoad
     public static class TransactionsStripe
     {
         static string cmdGetLatestCreatedTime = "SELECT ISNULL(MAX(CreatedTime),DATEADD(year,-1,GETDATE())) FROM [Stripe].[Charges]";
+        static string cmdGetMinCreatedTime = "SELECT ISNULL(MIN(CreatedTime),DATEADD(year,-1,GETDATE())) FROM [Stripe].[Charges]";
+        static string cmdGetLatestBankAccountChargeTime = "SELECT ISNULL(MIN(CreatedTime),DATEADD(year,-1,GETDATE())) FROM [Stripe].[Charges] where SourceType = 'Bank Account'";
         static string upsertCommand = @"IF NOT EXISTS (SELECT 1 FROM [Stripe].[Charges] WHERE [ChargeID] = @ChargeID)
 BEGIN
   INSERT INTO [Stripe].[Charges]
@@ -154,6 +156,7 @@ END";
             StripeConfiguration.SetApiKey(ConfigurationManager.AppSettings["StripeApiKey"]);
 
             GetNewCharges(chargeService, log);
+            //GetAllCharges(chargeService, log);
         }
 
         static void GetNewCharges(StripeChargeService chargeService, TraceWriter log)
@@ -190,11 +193,16 @@ END";
         static void GetAllCharges(StripeChargeService chargeService, TraceWriter log)
         {
             string lastObjectId = null;
+            DateTime? lastObjectCreated = null;
             StripeList<StripeCharge> response = null;
+
+            var lesserThanCreatedFilter = GetMinCreatedTime();
+            log.Info($"Min Created Time: {lesserThanCreatedFilter}");
 
             var listOptions = new StripeChargeListOptions()
             {
                 Limit = 100,
+                Created = new StripeDateFilter { LessThan = lesserThanCreatedFilter },
                 StartingAfter = lastObjectId
             };
 
@@ -208,8 +216,48 @@ END";
                     UpsertStripeTransaction(trans, log);
                 }
                 lastObjectId = response.Data.LastOrDefault()?.Id;
+                lastObjectCreated = response.Data.LastOrDefault()?.Created;
                 listOptions.StartingAfter = lastObjectId;
-                log.Info($"Charge last ObjectId: {lastObjectId}. More responses? {response.HasMore}");
+                listOptions.Created = new StripeDateFilter { LessThan = lastObjectCreated };
+                log.Info($"Charge last ObjectId: {lastObjectId}. Created Time: {lastObjectCreated}.More responses? {response.HasMore}");
+            }
+            while (response.HasMore);
+        }
+
+        static void GetBankAccountCharges(StripeChargeService chargeService, TraceWriter log)
+        {
+            string lastObjectId = null;
+            DateTime? lastObjectCreated = null;
+            StripeList<StripeCharge> response = null;
+            
+            var greaterThanCreatedFilter = GetLatestBankAccountChargeTime();
+            log.Info($"Max Back Account Charge Created Time: {greaterThanCreatedFilter}");
+
+            var listOptions = new StripeChargeListOptions()
+            {
+                Limit = 100,
+                Created = new StripeDateFilter { LessThan = greaterThanCreatedFilter },
+                StartingAfter = lastObjectId
+            };
+
+            var sourceListOptions = new StripeSourceListOptions()
+            {
+                Type = "Bank Account"
+            };
+
+            do
+            {
+                response = chargeService.List(listOptions);
+
+                foreach (var c in response.Data)
+                {
+                    var trans = StripeChargeToStripeTransaction(c);
+                    UpsertStripeTransaction(trans, log);
+                }
+                lastObjectId = response.Data.LastOrDefault()?.Id;
+                lastObjectCreated = response.Data.LastOrDefault()?.Created;
+                listOptions.StartingAfter = lastObjectId;
+                log.Info($"Charge last ObjectId: {lastObjectId}. Created Time: {lastObjectCreated}.More responses? {response.HasMore}");
             }
             while (response.HasMore);
         }
@@ -245,10 +293,10 @@ END";
                 ReceiptEmail = c.ReceiptEmail,
                 ReceiptNumber = c.ReceiptNumber,
                 Refunded = c.Refunded,
-                SourceType = JsonConvert.SerializeObject(getSourceType(c.Source.Type)),
-                SourceID = JsonConvert.SerializeObject(c.Source?.Id),
+                SourceType = getSourceType(c.Source.Type),
+                SourceID = c.Source?.Id,
                 Source = JsonConvert.SerializeObject(c.Source),
-                Card = JsonConvert.SerializeObject(c.Source?.Card),
+                Card = processNull(JsonConvert.SerializeObject(c.Source?.Card)),
                 BankAccount = processNull(JsonConvert.SerializeObject((c.Source?.BankAccount))),
                 Account = processNull(JsonConvert.SerializeObject(c.Source?.Account)),
                 Status = c.Status,
@@ -275,6 +323,43 @@ END";
                 }
             }
             return latestCreatedTime;
+        }
+
+        static DateTime GetMinCreatedTime()
+        {
+            DateTime minCreatedTime;
+            var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionString"].ConnectionString;
+
+            using (var connection = new SqlConnection(cnnString))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(cmdGetMinCreatedTime, connection))
+                {
+                    minCreatedTime = (DateTime)cmd.ExecuteScalar();
+                    minCreatedTime = DateTime.SpecifyKind(minCreatedTime, DateTimeKind.Utc);
+                }
+            }
+            return minCreatedTime;
+        }
+
+
+        static DateTime GetLatestBankAccountChargeTime()
+        {
+            DateTime maxCreatedTime;
+            var cnnString = ConfigurationManager.ConnectionStrings["PP_ConnectionString"].ConnectionString;
+
+            using (var connection = new SqlConnection(cnnString))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(cmdGetLatestBankAccountChargeTime, connection))
+                {
+                    maxCreatedTime = (DateTime)cmd.ExecuteScalar();
+                    maxCreatedTime = DateTime.SpecifyKind(maxCreatedTime, DateTimeKind.Utc);
+                }
+            }
+            return maxCreatedTime;
         }
 
         public static void UpsertStripeTransaction(StripeTransaction trans, TraceWriter log)
@@ -359,24 +444,24 @@ END";
         {
             if (sourceNum == Stripe.SourceType.Account)
             {
-                return "Account";
+                return Convert.ToString("Account");
             }
             else if (sourceNum == Stripe.SourceType.BankAccount)
             {
-                return "Bank Account";
+                return Convert.ToString("Bank Account");
             }
             else if (sourceNum == Stripe.SourceType.Card)
             {
-                return "Card";
+                return Convert.ToString("Card");
             }
 
             else if (sourceNum == Stripe.SourceType.Deleted)
             {
-                return "Deleted";
+                return Convert.ToString("Deleted");
             }
             else
             {
-                return "Source";
+                return Convert.ToString("Source");
             }
         }
 
@@ -388,7 +473,7 @@ END";
             }
             else
             {
-                return data;
+                return Convert.ToString(data);
             }
         }
 
